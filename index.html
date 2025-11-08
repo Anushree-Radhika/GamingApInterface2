@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Your Site</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="shell">
+  <!-- ===== Top Bar ===== -->
+  <header class="top" role="banner" aria-label="Top bar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">⚡</div>
+      <div class="name" id="site-name">YourWebsite</div>
+    </div>
+
+    <div class="actions" role="group" aria-label="Quick actions">
+      <button class="action-btn" id="btn-dashboard">Dashboard</button>
+      <button class="action-btn" id="btn-themes">Themes</button>
+      <button class="action-btn" id="btn-layouts">Layouts</button>
+      <button class="action-btn" id="btn-assets">Assets</button>
+      <button class="action-btn" id="btn-settings">Settings</button>
+      <button class="action-btn" id="btn-help">Help</button>
+    </div>
+  </header>
+
+  <!-- ===== Left Sidebar ===== -->
+  <nav class="side left" aria-label="Left navigation">
+    <h3>Navigation</h3>
+    <ul>
+      <li id="left-world">🌍 World <span class="badge">12</span></li>
+      <li id="left-tasks">📝 Tasks</li>
+      <li id="left-events">📅 Events</li>
+      <li id="left-map">🗺️ Map</li>
+      <li id="left-settings">⚙️ Settings</li>
+    </ul>
+  </nav>
+
+  <!-- ===== Right Sidebar ===== -->
+  <nav class="side right" aria-label="Right navigation">
+    <h3>Panel</h3>
+    <ul>
+      <li id="right-profile">👤 Profile</li>
+      <li id="right-mail">✉️ Messages <span class="badge">3</span></li>
+      <li id="right-notify">🔔 Notifications</li>
+      <li id="right-achieve">🏆 Achievements</li>
+      <li id="right-help">❓ Help</li>
+    </ul>
+  </nav>
+
+  <!-- ===== Main Content (3D Image) ===== -->
+  <main class="content" role="main">
+    <div class="stage" aria-label="3D preview area">
+      <!-- Option A: Plain 3D image (replace the src) -->
+      <img id="center-3d" src="assets/3d-image.png" alt="3D scene preview" />
+
+      <!--
+      Option B: Web 3D (Model Viewer). Put your GLB in assets/model.glb
+      <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+      <model-viewer src="assets/model.glb" alt="3D model"
+        ar shadow-intensity="0.8" camera-controls auto-rotate
+        style="width:100%;height:100%;background:transparent;">
+      </model-viewer>
+      -->
+
+      <!--
+      Option C: Spline embed (replace URL)
+      <iframe src="https://my.spline.design/your-scene" frameborder="0"
+              style="width:100%;height:100%;"></iframe>
+      -->
+
+      <div class="hint">Drop your 3D image / viewer here</div>
+    </div>
+  </main>
+
+  <!-- ===== Bottom Tabs (6, each unique class + id) ===== -->
+  <footer class="tabs" role="navigation" aria-label="Bottom tabs">
+    <button class="tab tab--heroes"     id="tab-heroes">Heroes</button>
+    <button class="tab tab--inventory"  id="tab-inventory">Inventory</button>
+    <button class="tab tab--chattools"  id="tab-chattools">ChatTools</button>
+    <button class="tab tab--friends"    id="tab-friends">Friends</button>
+    <button class="tab tab--offers"     id="tab-offers">Offers</button>
+    <button class="tab tab--play"       id="tab-play">Play</button>
+  </footer>
+</div>
+
+<script>
+  // Simple demo behavior: mark a bottom tab as active when clicked
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(x => x.classList.remove('is-active'));
+    t.classList.add('is-active');
+  }));
+
+  // Example: wire top buttons (replace with your logic)
+  const log = (id) => console.log(`[action] ${id} clicked`);
+  document.querySelectorAll('.action-btn').forEach(b=>{
+    b.addEventListener('click', ()=>log(b.id));
+  });
+</script>
+</body>
+</html>
